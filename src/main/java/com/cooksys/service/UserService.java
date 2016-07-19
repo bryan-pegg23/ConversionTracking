@@ -13,25 +13,28 @@ public class UserService {
 
 	@Autowired
 	private UserRepository repo;
-	
+
 	public void addUser(UserApp user) {
 		repo.save(user);
 	}
-	
-	public UserApp logIn(UserApp user){
+
+	public UserApp logIn(UserApp user) {
 		UserApp temp = repo.findByUsername(user.getUsername());
-		if(temp.getPassword().equals(user.getPassword())){
-			return temp;
-		} else{
-			return null;
+		if (temp != null) {
+			if (temp.getPassword().equals(user.getPassword())) {
+				return temp;
+			} else {
+				return null;
+			}
 		}
-		
+		return null;
+
 	}
 
 	public List<UserApp> getAllUsers() {
 		return repo.findAll();
 	}
-	
+
 	public UserApp getUserById(Long id) {
 		return repo.findOne(id);
 	}

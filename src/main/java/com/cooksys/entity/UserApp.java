@@ -22,15 +22,27 @@ public class UserApp {
 	
 	@Column(name = "signupNum")
 	private Long signupNum;
+	
+	@Column(name = "admin")
+	private String admin;
 
 	public UserApp() {
 
 	}
 
-	public UserApp(Long id, String username, String password) {
+	public UserApp(Long id, String username, String password, String admin) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
+		this.admin = admin;
+	}
+
+	public String getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(String admin) {
+		this.admin = admin;
 	}
 
 	public Long getSignupNum() {
