@@ -10,4 +10,9 @@ angular.module('app').controller('AddLocationController', ['$http', '$location',
 				console.dir(result.data)
 			})
 	}
+	
+	ctrl.goHome = function() {
+		$location.path('/admin')
+	}
+	
 }])

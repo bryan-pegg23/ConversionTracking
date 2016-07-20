@@ -18,6 +18,7 @@ angular.module('app').controller('HomeController', [ "$scope", "UserService", "$
 					$location.path("/user")
 				} else{
 					loggedIn = null
+					alert("Please register the user before trying to log in");
 				}
 				
 			})
