@@ -1,3 +1,7 @@
-angular.module('app').controller('UserController', ['UserService','allUsers', function UserController(UserService, allUsers) {
+angular.module('app').controller('UserController', ['$location',function( $location) {
 
+//	if(loggedIn != 'fuck you'){
+//		$location.path('/home')
+//	}
+	
 }]);

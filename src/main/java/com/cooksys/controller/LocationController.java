@@ -26,11 +26,13 @@ public class LocationController {
 	private LocationService locationService;
 
 	@RequestMapping(method = RequestMethod.POST)
-	public void createLocation(@RequestBody LocationBody local) {
+	public String createLocation(@RequestBody LocationBody local) {
 		if(local.getTitle() == null){
 			locationService.incrementNum(local);
+			return "got location";
 		} else{
 			locationService.create(local);
+			return "cretaed location";
 		}
 	}
 	

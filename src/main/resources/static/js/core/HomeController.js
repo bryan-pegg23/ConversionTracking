@@ -1,24 +1,28 @@
 
-angular.module('app').controller('HomeController', [ "$scope", "UserDetailService", "$location", function HomeController($scope, UserDetailService, $location)
+angular.module('app').controller('HomeController', [ "$scope", "UserService", "$location", function HomeController($scope, UserService, $location)
 {
 	var ctrl = this;
 	
 	ctrl.login = function() {
 		login = $scope.user
 		console.dir(login)
-		UserDetailService.userLogin(login)
+		UserService.userLogin(login)
 			.then(function (result){
 				console.dir(result.data)
 				var data = result.data
 				if(data.admin === "yes"){
+					loggedIn = "fuck"
 					$location.path("/admin")
 				}else if(data.admin === "no"){
+					loggedIn = "fuck you"
 					$location.path("/user")
 				} else{
-					alert("Please register new user first")
+					loggedIn = null
 				}
 				
 			})
 	}
+	
+	
 
 }]);

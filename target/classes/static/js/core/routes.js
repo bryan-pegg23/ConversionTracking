@@ -15,23 +15,28 @@ angular.module('app').config(
 						templateUrl : baseRoute + 'user/userPage.html',
 						controller : 'UserController',
 						controllerAs : 'userController',
-						resolve : {
-							allUsers : function(UserDetailService) {
-								return UserDetailService.userLogin
-							}
-						}
+
 					}).
 
 					when('/admin', {
 
 						templateUrl : baseRoute + 'admin/adminPage.html',
-						controller : 'UserController',
-						controllerAs : 'userController',
-						resolve : {
-							allUsers : function(UserDetailService) {
-								return UserDetailService.userAdmin
-							}
-						}
+						controller : 'AdminController',
+						controllerAs : 'adminController',
+						
+						resolve: {
+				              allLocations: function(LocationService){
+					                  return LocationService.getAllLocals();
+					          }
+						}						
+					}).
+					
+					when('/location', {
+
+						templateUrl : baseRoute + 'admin/addLocalTemp.html',
+						controller : 'AddLocationController',
+						controllerAs : 'addLocationController',
+						
 					}).
 					
 					otherwise('/home');

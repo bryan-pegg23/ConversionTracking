@@ -1,7 +1,9 @@
-angular.module('app').service('UserService', function($http){
-
+angular.module('app').service('UserService', [ '$http', function($http) {
 	var url = 'user/';
-	
-	this.getAllUsers = function() { return $http.get(url + 'allUsers') };
 
-});
+	this.userLogin = function(user) {
+		console.dir(user);
+		return $http.post(url + "login", user)
+	}
+	
+} ])
