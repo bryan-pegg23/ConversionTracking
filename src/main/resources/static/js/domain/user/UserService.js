@@ -6,4 +6,8 @@ angular.module('app').service('UserService', [ '$http', function($http) {
 		return $http.post(url + "login", user)
 	}
 	
+	this.getLocation = function(id){
+		return $http.get(url + id)
+	}
+	
 } ])

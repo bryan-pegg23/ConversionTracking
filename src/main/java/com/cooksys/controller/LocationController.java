@@ -1,5 +1,6 @@
 package com.cooksys.controller;
 
+import java.text.ParseException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cooksys.entity.LocationApp;
 import com.cooksys.entity.UserApp;
 import com.cooksys.model.LocationBody;
+import com.cooksys.model.LocationResponse;
 import com.cooksys.service.LocationService;
 import com.cooksys.service.UserService;
 
@@ -60,5 +62,45 @@ public class LocationController {
 	public String getLocationConversion(@PathVariable Long id) {
 		return locationService.getConRateByLocal(id);
 	}
+	
+	@RequestMapping(value="day", method=RequestMethod.GET)
+	public List<LocationResponse> getAllLocationsByDay() throws ParseException {
+		return LocationResponse.getList(locationService.getAllLocationsByDaysNum(0L));
+	}
 
+	@RequestMapping(value="week", method=RequestMethod.GET)
+	public List<LocationResponse> getAllLocationsByWeek() throws ParseException {
+		return LocationResponse.getList(locationService.getAllLocationsByDaysNum(7L));
+	}
+	
+	@RequestMapping(value="month", method=RequestMethod.GET)
+	public List<LocationResponse> getAllLocationsByMonth() throws ParseException {
+		return LocationResponse.getList(locationService.getAllLocationsByDaysNum(30L));
+	}
+	
+	@RequestMapping(value="year", method=RequestMethod.GET)
+	public List<LocationResponse> getAllLocationsByYear() throws ParseException {
+		return LocationResponse.getList(locationService.getAllLocationsByDaysNum(360L));
+	}
+	
+	@RequestMapping(value="day/{id}", method=RequestMethod.GET)
+	public LocationResponse getLocationByDay(@PathVariable("id") Long id) throws ParseException {
+		return LocationResponse.get(locationService.getLocationByDaysNum(id, 0L));
+	}
+	
+	@RequestMapping(value="week/{id}", method=RequestMethod.GET)
+	public LocationResponse getLocationByWeek(@PathVariable("id") Long id) throws ParseException {
+		return LocationResponse.get(locationService.getLocationByDaysNum(id, 7L));
+	}
+	
+	@RequestMapping(value="month/{id}", method=RequestMethod.GET)
+	public LocationResponse getLocationByMonth(@PathVariable("id") Long id) throws ParseException {
+		return LocationResponse.get(locationService.getLocationByDaysNum(id, 30L));
+	}
+	
+	@RequestMapping(value="year/{id}", method=RequestMethod.GET)
+	public LocationResponse getLocationByYear(@PathVariable("id") Long id) throws ParseException {
+		return LocationResponse.get(locationService.getLocationByDaysNum(id, 360L));
+	}
+	
 }

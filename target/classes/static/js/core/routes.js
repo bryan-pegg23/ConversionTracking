@@ -31,11 +31,32 @@ angular.module('app').config(
 						}						
 					}).
 					
+					when('/admin/:id', {
+
+						templateUrl : baseRoute + 'admin/adminPage.html',
+						controller : 'AdminController',
+						controllerAs : 'adminController',
+						
+						resolve: {
+				              allLocations: function(LocationService){
+					                  return LocationService.getAllLocals();
+					          }
+						}						
+					}).
+					
 					when('/location', {
 
 						templateUrl : baseRoute + 'admin/addLocalTemp.html',
 						controller : 'AddLocationController',
 						controllerAs : 'addLocationController',
+						
+					}).
+					
+					when('/user/register', {
+
+						templateUrl : baseRoute + 'register/registerUser.html',
+						controller : 'registerUserController',
+						controllerAs : 'registerUserController',
 						
 					}).
 					

@@ -1,9 +1,12 @@
 package com.cooksys.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,17 +28,22 @@ public class LocationApp {
 	
 	@Column(name = "area_code")
 	private Long areaCode;
+	
+	@ManyToMany(mappedBy = "locations")
+	private List<HitsPerDay> hitsPerDay;
 
 	public LocationApp() {
 
 	}
 
-	public LocationApp(Long id, String area, Long userNumber, Long annoumusNumber, Long areaCode) {
+	public LocationApp(Long id, String area, Long userNumber, Long annoumusNumber, Long areaCode,
+			List<HitsPerDay> hitsPerDay) {
 		this.id = id;
 		this.area = area;
 		this.userNumber = userNumber;
 		this.annoumusNumber = annoumusNumber;
 		this.areaCode = areaCode;
+		this.hitsPerDay = hitsPerDay;
 	}
 
 	public Long getAreaCode() {
@@ -76,6 +84,14 @@ public class LocationApp {
 
 	public void setAnnoumusNumber(Long annoumusNumber) {
 		this.annoumusNumber = annoumusNumber;
+	}
+
+	public List<HitsPerDay> getHitsPerDay() {
+		return hitsPerDay;
+	}
+
+	public void setHitsPerDay(List<HitsPerDay> hitsPerDay) {
+		this.hitsPerDay = hitsPerDay;
 	}
 
 }

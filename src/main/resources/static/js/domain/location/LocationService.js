@@ -5,9 +5,14 @@ angular.module('app').service('LocationService', [ '$http', function($http) {
 		console.dir(local);
 		return $http.post(url, local)
 	}
-	
-	this.getAllLocals = function(){
+
+	this.getAllLocals = function() {
 		return $http.get(url + 'getAll')
 	}
+
+	this.getLocationsByDays = function(days) {
+		return $http.get(url + days)
+	}
 	
+
 } ])

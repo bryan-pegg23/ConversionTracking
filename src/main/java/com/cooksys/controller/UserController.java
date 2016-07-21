@@ -25,7 +25,7 @@ public class UserController {
 	@Autowired
 	private LocationService numberService;
 
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value = "register", method = RequestMethod.POST)
 	public void register(@RequestBody UserBody body) {
 		UserApp user = new UserApp();
 		user.setPassword(body.getPassword());

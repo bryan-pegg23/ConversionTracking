@@ -1,7 +1,11 @@
-angular.module('app').controller('UserController', ['$location',function( $location) {
+angular.module('app').controller('UserController', ['$location', 'UserService',function( $location,  UserService) {
 
-//	if(loggedIn != 'fuck you'){
-//		$location.path('/home')
-//	}
+	var ctrl = this
+	
+	ctrl.message = "Bryan Pegg"
+		
+	if(loggedIn != 'user'){
+		$location.path('/home')
+	}
 	
 }]);

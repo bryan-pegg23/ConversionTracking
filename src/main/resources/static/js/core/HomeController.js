@@ -11,10 +11,10 @@ angular.module('app').controller('HomeController', [ "$scope", "UserService", "$
 				console.dir(result.data)
 				var data = result.data
 				if(data.admin === "yes"){
-					loggedIn = "fuck"
+					loggedIn = "admin"
 					$location.path("/admin")
 				}else if(data.admin === "no"){
-					loggedIn = "fuck you"
+					loggedIn = "user"
 					$location.path("/user")
 				} else{
 					loggedIn = null
@@ -22,6 +22,10 @@ angular.module('app').controller('HomeController', [ "$scope", "UserService", "$
 				}
 				
 			})
+	}
+	
+	ctrl.register = function() {
+			$location.path('/user/register')
 	}
 	
 	
