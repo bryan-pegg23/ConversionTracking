@@ -4,8 +4,8 @@ angular.module('app').controller('UserController', ['$location', 'UserService',f
 	
 	ctrl.message = "Bryan Pegg"
 		
-	if(loggedIn != 'user'){
-		$location.path('/home')
-	}
+//	if(loggedIn != 'user'){
+//		$location.path('/home')
+//	}
 	
 }]);
