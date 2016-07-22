@@ -11,10 +11,10 @@ angular.module('app').controller('HomeController', [ "$scope", "UserService", "$
 				console.dir(result.data)
 				var data = result.data
 				if(data.admin === "yes"){
-//					loggedIn = "admin"
+					loggedIn = "admin"
 					$location.path("/admin")
 				}else if(data.admin === "no"){
-//					loggedIn = "user"
+					loggedIn = "user"
 					$location.path("/user")
 				} else{
 					loggedIn = null

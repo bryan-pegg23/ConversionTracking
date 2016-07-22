@@ -30,10 +30,10 @@ angular.module('app').controller('AdminController', ['$http', '$location', 'allL
 	ctrl.goLocation = function(){
 		
 	}
-//	
-//	if (loggedIn != "admin") {
-//		loggedIn = null
-//		$location.path('/home')
-//	}
+	
+	if (loggedIn != "admin") {
+		loggedIn = null
+		$location.path('/home')
+	}
 
 }]);
