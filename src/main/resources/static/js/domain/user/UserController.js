@@ -1,8 +1,8 @@
 angular.module('app').controller('UserController', ['$location', 'UserService',function( $location,  UserService) {
 
-	var ctrl = this
+	var ctrl = this;
 	
-	ctrl.message = "Bryan Pegg"
+	ctrl.message = "Cook Systems FastTrack'D Java Program";
 		
 //	if(loggedIn != 'user'){
 //		$location.path('/home')
